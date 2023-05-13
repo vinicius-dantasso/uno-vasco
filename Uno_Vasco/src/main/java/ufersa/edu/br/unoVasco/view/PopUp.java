@@ -113,6 +113,9 @@ public class PopUp extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PickColorFrame pickColor = new PickColorFrame(this);
+        //CORREÇÃO DE BUG
+        boolean canChangePileImage = true;
+        //================================
         this.declaredColor = pickColor.chooseColor(playerHand.get(choice));
         
         if(declaredColor != null){
@@ -121,14 +124,20 @@ public class PopUp extends javax.swing.JFrame {
             }
             catch(InvalidColorSubmissionException | InvalidValueSubmissionException | InvalidPlayerTurnException ex){
                 Logger.getLogger(PopUp.class.getName()).log(Level.SEVERE,null,ex);
+                //CORREÇÃO DE BUG
+                canChangePileImage = false;
+                this.dispose();
+                //==========================
             }
             
             this.revalidate();
             
-            if(declaredColor != Cards.Color.Wild){
+            if(declaredColor != Cards.Color.Wild && canChangePileImage){
                 gameStage.setPidName(game.getCurrentPlayer());
                 gameStage.setButtonIcons();
-                pileCard.setIcon(new javax.swing.ImageIcon("C:\\Users\\vinic\\OneDrive\\Documentos\\NetBeansProjects\\Uno_Vasco\\images\\PNGs\\small\\"+game.getTopCardImage()));
+                //CORREÇÃO DE BUG
+                pileCard.setIcon(new javax.swing.ImageIcon("images\\PNGs\\small\\"+game.getTopCardImage()));
+                //===========================================================================================
                 this.dispose();
             }
         }  
