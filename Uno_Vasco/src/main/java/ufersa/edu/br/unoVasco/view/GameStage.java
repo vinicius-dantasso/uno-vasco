@@ -55,6 +55,9 @@ public class GameStage extends javax.swing.JFrame {
         for(int j=cardIds.size();j<cardButtons.size();j++){
             cardButtons.get(j).setIcon(null);
         }
+
+        //CORREÇÃO DE BUG
+        deckButton.setIcon(new ImageIcon("images\\PNGs\\small\\Card_Back.png"));
     }
     
     public void setPidName(){
