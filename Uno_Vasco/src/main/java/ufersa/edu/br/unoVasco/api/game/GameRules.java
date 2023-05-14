@@ -1,6 +1,10 @@
 package ufersa.edu.br.unoVasco.api.game;
 
 import java.awt.Font;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -198,6 +202,20 @@ public class GameRules {
             JLabel message = new JLabel(this.playerIds[currentPlayer] + " ganhou o jogo!");
             message.setFont(new Font("Arial",Font.BOLD,48));
             JOptionPane.showMessageDialog(null, message);
+
+            //CRIA UM ARQUIVO PARA SALVAR O HISTÓRICO DE VENCEDORES
+            try{
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+                FileWriter writer = new FileWriter("historico_de_jogo.txt", true);
+
+                writer.write(now.format(formatter) + "\nVencedor: " + getCurrentPlayer());
+                writer.close();
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+
             System.exit(0);
         }
         

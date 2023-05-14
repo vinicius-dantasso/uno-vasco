@@ -44,6 +44,7 @@ ufersa\edu\br\unoVasco\view\GameStage$4.class
 ufersa\edu\br\unoVasco\view\PickColorFrame$3.class
 ufersa\edu\br\unoVasco\model\dataStructures\MyArrayListInterface.class
 ufersa\edu\br\unoVasco\model\cards\Cards$Color.class
+ufersa\edu\br\unoVasco\api\game\Sound.class
 ufersa\edu\br\unoVasco\model\dataStructures\MyStackException.class
 ufersa\edu\br\unoVasco\api\gameExceptions\InvalidPlayerTurnException.class
 ufersa\edu\br\unoVasco\view\AddPlayer$4.class
